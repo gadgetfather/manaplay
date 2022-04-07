@@ -1,0 +1,35 @@
+.navbar {
+  height: 3.5rem;
+  background-color: var(--navbar-bg);
+  display: flex;
+  align-items: center;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+.sign_in {
+  font-size: 1rem;
+}
+.brand_name {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.nav_actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 1100px) {
+  .brand_name {
+    font-size: 1.5rem;
+  }
+  .navbar {
+    margin-left: 5rem;
+  }
+  .icons {
+    font-size: 1.5rem;
+  }
+}
