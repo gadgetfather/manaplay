@@ -8,13 +8,15 @@ export function Navbar() {
         <span className={`${styles.icons} material-icons-outlined`}>
           search
         </span>
-
-        <span className={`${styles.icons} material-icons-outlined`}>
+        <button className={`btn btn-secondary ${styles.sign_in}`}>
+          Sign In
+        </button>
+        {/* <span className={`${styles.icons} material-icons-outlined`}>
           person
-        </span>
-        <span className={`${styles.icons} material-icons-outlined`}>
+        </span> */}
+        {/* <span className={`${styles.icons} material-icons-outlined`}>
           logout
-        </span>
+        </span> */}
       </div>
     </nav>
   );
