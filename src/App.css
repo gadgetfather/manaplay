@@ -1,0 +1,10 @@
+:root {
+  font-size: 18px;
+  --navbar-bg: #fff;
+}
+
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(69, 69, 69);
+}
