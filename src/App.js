@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, Sidebar } from "./components/index";
+import { MobileMenu, Navbar, Sidebar } from "./components/index";
 import { HomePage } from "./pages";
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
       <Navbar />
       <Sidebar />
       <HomePage />
+      <MobileMenu />
     </div>
   );
 }
