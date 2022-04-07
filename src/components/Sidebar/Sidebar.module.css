@@ -5,7 +5,7 @@
   height: 100vh;
   /* height: 5rem */
   background-color: var(--sidebar-bg);
-  display: flex;
+  display: none;
   flex-direction: column;
 
   align-items: center;
@@ -22,4 +22,10 @@
 .sidebar_actions span {
   font-size: 2rem;
   cursor: pointer;
+}
+
+@media screen and (min-width: 1100px) {
+  .sidebar {
+    display: flex;
+  }
 }
