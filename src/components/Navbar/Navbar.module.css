@@ -5,6 +5,7 @@
   align-items: center;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
+  margin-left: 5rem;
 }
 
 .brand_name {
@@ -17,4 +18,13 @@
   display: flex;
   gap: 0.4rem;
   align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
+  .brand_name {
+    font-size: 1.5rem;
+  }
+  .icons {
+    font-size: 1.5rem;
+  }
 }
