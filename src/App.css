@@ -7,6 +7,9 @@
   --category-pills-bg: rgb(242, 242, 242);
   --pills-border: rgb(217, 217, 217);
 }
+.link {
+  color: black;
+}
 
 .page_container {
   height: 100vh;
