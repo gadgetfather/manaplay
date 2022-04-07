@@ -1,0 +1,25 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  width: 5rem;
+  height: 100vh;
+  /* height: 5rem */
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.sidebar_actions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.sidebar_actions span {
+  font-size: 2rem;
+  cursor: pointer;
+}
