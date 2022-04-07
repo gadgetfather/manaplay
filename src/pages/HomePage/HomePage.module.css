@@ -1,6 +1,5 @@
 .main_content_home {
   height: calc(100vh - 3.5rem);
-
   background-color: var(--main-bg);
 }
 .category_pills_container {
@@ -23,6 +22,8 @@
 .video_grid {
   margin-top: 0.4rem;
   display: grid;
+  padding-bottom: 2.2rem;
+
   max-width: 100%;
   grid-gap: 0.5rem;
   grid-template-columns: repeat(1, 1fr);
@@ -33,7 +34,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
   .main_content_home {
     margin-left: 5rem;
   }
