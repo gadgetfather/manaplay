@@ -12,6 +12,7 @@
 .brand_name {
   font-size: 1.1rem;
   color: var(--primary-color);
+  cursor: pointer;
 }
 
 .nav_actions {
