@@ -6,7 +6,7 @@ export function VideoCard() {
       <div className={styles.video_thumbnail}>
         <img
           className={styles.thumbnail}
-          src="https://i.ytimg.com/vi/J3Th1jKjRgk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBQHntlhr1zVYRYK9R1-ouEZg4cSA"
+          src="https://i.ytimg.com/vi/WfduJifpOB8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC6HbJ-MDaxrr7vAFx5SLmMogra_g"
           alt=""
         />
       </div>
