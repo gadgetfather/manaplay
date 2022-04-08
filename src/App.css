@@ -6,6 +6,10 @@
   --breaker: rgb(189, 186, 186);
   --category-pills-bg: rgb(242, 242, 242);
   --pills-border: rgb(217, 217, 217);
+  --link-color: black;
+}
+.link {
+  color: var(--link-color);
 }
 
 .page_container {
