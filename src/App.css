@@ -7,9 +7,11 @@
   --category-pills-bg: rgb(242, 242, 242);
   --pills-border: rgb(217, 217, 217);
   --link-color: black;
+  --form-bg: #fff;
 }
 .link {
   color: var(--link-color);
+  text-decoration: none;
 }
 
 .page_container {
