@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { MobileMenu, Navbar, Sidebar } from "./components/index";
-import { HomePage, SingleVideoPage } from "./pages";
+import { HomePage, LoginPage, SignupPage, SingleVideoPage } from "./pages";
 
 function App() {
   return (
@@ -17,6 +17,8 @@ function App() {
         <Route path="/history" element={<h1>History</h1>} />
         <Route path="/playlist" element={<h1>Playlist</h1>} />
         <Route path="/watch" element={<SingleVideoPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </div>
   );
