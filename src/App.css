@@ -8,6 +8,7 @@
   --pills-border: rgb(217, 217, 217);
   --link-color: black;
   --form-bg: #fff;
+  --error-color: #cc0000;
 }
 .link {
   color: var(--link-color);
@@ -20,7 +21,9 @@
   background-color: rgb(69, 69, 69);
   position: relative;
 }
-
+.error-text {
+  color: var(--error-color);
+}
 /* media query */
 @media screen and (min-width: 1100px) {
   :root {
