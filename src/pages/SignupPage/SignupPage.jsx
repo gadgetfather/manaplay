@@ -1,17 +1,82 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { Link } from "react-router-dom";
 import * as styles from "./SignupPage.module.css";
+import { signupReducer } from "./signupReducer";
+import { validate } from "./validate";
+
+const initialObj = {
+  email: "",
+  password: "",
+  firstName: "",
+  isSubmit: false,
+  errors: {},
+};
 export function SignupPage() {
+  const [formValues, formValuesDispatch] = useReducer(
+    signupReducer,
+    initialObj
+  );
+  const { errors } = formValues;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    formValuesDispatch({ type: "SUBMIT" });
+    formValuesDispatch({ type: "ERRORS", payload: validate(formValues) });
+  };
+
+  console.log(formValues);
   return (
     <main className={styles.main_content_login}>
       <h1 className={styles.page_title}>Signup</h1>
-      <form className={styles.form_container}>
+      <form onSubmit={(e) => handleSubmit(e)} className={styles.form_container}>
         <label htmlFor="Name">Name</label>
-        <input type="Name" required />
+        <input
+          onChange={(e) =>
+            formValuesDispatch({
+              type: "ON_CHANGE",
+              name: e.target.name,
+              payload: e.target.value,
+            })
+          }
+          name="firstName"
+          type="Name"
+          value={formValues.firstName}
+        />
+        {errors.firstName ? (
+          <p className="error-text">{errors.firstName}</p>
+        ) : (
+          ""
+        )}
         <label htmlFor="email">Email</label>
-        <input type="email" required />
+        <input
+          onChange={(e) =>
+            formValuesDispatch({
+              type: "ON_CHANGE",
+              name: e.target.name,
+              payload: e.target.value,
+            })
+          }
+          name="email"
+          type="email"
+          value={formValues.email}
+        />
+        {errors.email ? <p className="error-text">{errors.email}</p> : ""}
+
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" />
+        <input
+          onChange={(e) =>
+            formValuesDispatch({
+              type: "ON_CHANGE",
+              name: e.target.name,
+              payload: e.target.value,
+            })
+          }
+          type="password"
+          name="password"
+          id="password"
+          value={formValues.password}
+        />
+        {errors.password ? <p className="error-text">{errors.password}</p> : ""}
+
         <button className={`btn btn-primary ${styles.submit_btn}`}>
           Login
         </button>
