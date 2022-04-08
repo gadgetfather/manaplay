@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as styles from "./VideoCard.module.css";
 export function VideoCard() {
+  const navigate = useNavigate();
+  const handleVideo = () => {
+    navigate("/watch");
+  };
   return (
-    <div className={styles.video_card_container}>
+    <div onClick={handleVideo} className={styles.video_card_container}>
       <div className={styles.video_thumbnail}>
         <img
           className={styles.thumbnail}
