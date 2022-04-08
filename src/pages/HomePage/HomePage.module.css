@@ -1,5 +1,5 @@
 .main_content_home {
-  height: calc(100vh - 3.5rem);
+  min-height: calc(100vh - 3.5rem);
   background-color: var(--main-bg);
 }
 .category_pills_container {
