@@ -40,5 +40,7 @@
   }
   .form_container {
     margin-bottom: 10rem;
+    width: 20rem;
+    font-size: 1.2rem;
   }
 }

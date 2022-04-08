@@ -14,7 +14,7 @@ export function LoginPage() {
           <button className={`btn btn-primary ${styles.submit_btn}`}>
             Login
           </button>
-          <Link className="link" to="/sdss">
+          <Link className="link" to="/signup">
             Dont Have account?
           </Link>
         </form>
