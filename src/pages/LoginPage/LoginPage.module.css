@@ -5,6 +5,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.2rem;
+}
+.page_title {
+  text-align: center;
 }
 .form_container {
   display: flex;
@@ -33,5 +37,8 @@
 @media screen and (min-width: 1100px) {
   .main_content_login {
     margin-left: 5rem;
+  }
+  .form_container {
+    margin-bottom: 10rem;
   }
 }
