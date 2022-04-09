@@ -4,6 +4,8 @@ export const formValueReducer = (state, action) => {
       return { ...state, [action.name]: action.payload };
     case "VALIDATE":
       return { ...state, errors: action.payload };
+    case "SUBMIT":
+      return { ...state, isSubmit: true };
     case "TEST":
       return {
         email: "adarshbalika@gmail.com",
