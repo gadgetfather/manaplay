@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import * as styles from "./Navbar.module.css";
 import { ToastContainer, toast } from "react-toastify";
 export function Navbar() {
+  const navigate = useNavigate();
   const {
     userInfo: { token, user },
     setUserInfo,
@@ -12,6 +13,7 @@ export function Navbar() {
     localStorage.removeItem("Manaplay.encodedToken");
     localStorage.removeItem("Manaplay.User");
     setUserInfo({ token: "", user: {} });
+    navigate("/");
     toast.error("You have been logged out", {
       position: "top-center",
       autoClose: 2000,
