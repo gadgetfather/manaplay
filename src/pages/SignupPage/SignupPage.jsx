@@ -1,8 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
 import * as styles from "./SignupPage.module.css";
 import { signupReducer } from "./signupReducer";
 import { validate } from "./validate";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialObj = {
   email: "",
@@ -12,21 +15,36 @@ const initialObj = {
   errors: {},
 };
 export function SignupPage() {
+  const { signup, apiErrors } = useAuth();
   const [formValues, formValuesDispatch] = useReducer(
     signupReducer,
     initialObj
   );
-  const { errors } = formValues;
+  const { errors, isSubmit } = formValues;
   const handleSubmit = (e) => {
     e.preventDefault();
     formValuesDispatch({ type: "SUBMIT" });
     formValuesDispatch({ type: "ERRORS", payload: validate(formValues) });
   };
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmit) {
+      signup(formValues.email, formValues.password, formValues.firstName);
+      toast.success("Account has been created", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }, [errors]);
 
-  console.log(formValues);
   return (
     <main className={styles.main_content_login}>
       <h1 className={styles.page_title}>Signup</h1>
+
       <form onSubmit={(e) => handleSubmit(e)} className={styles.form_container}>
         <label htmlFor="Name">Name</label>
         <input
@@ -78,7 +96,7 @@ export function SignupPage() {
         {errors.password ? <p className="error-text">{errors.password}</p> : ""}
 
         <button className={`btn btn-primary ${styles.submit_btn}`}>
-          Login
+          Create account
         </button>
         <Link className="link" to="/login">
           Already Have account?
