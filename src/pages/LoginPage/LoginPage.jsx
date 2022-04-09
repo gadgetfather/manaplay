@@ -1,27 +1,44 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
 import { formValueReducer } from "./formValueReducer";
 import * as styles from "./LoginPage.module.css";
 import { validate } from "./validate";
-
-const initialObj = { email: "", password: "", errors: {} };
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const initialObj = { email: "", password: "", isSubmit: false, errors: {} };
 
 export function LoginPage() {
-  const [isSubmit, setIsSubmit] = useState(false);
+  const { login } = useAuth();
   const [formValues, formValueDispatch] = useReducer(
     formValueReducer,
     initialObj
   );
-  const { errors } = formValues;
+  const { errors, isSubmit } = formValues;
   const handleSubmit = (e, formValues) => {
     e.preventDefault();
-    setIsSubmit(true);
+    formValueDispatch({ type: "SUBMIT" });
     formValueDispatch({ type: "VALIDATE", payload: validate(formValues) });
   };
-  console.log(formValues);
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmit) {
+      login(formValues.email, formValues.password);
+      toast.success("You are logged in", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }, [errors]);
+
   return (
     <>
       <main className={styles.main_content_login}>
+        <ToastContainer />
         <h1 className={styles.page_title}>Login</h1>
         <form
           onSubmit={(e) => handleSubmit(e, formValues)}
