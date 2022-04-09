@@ -7,23 +7,18 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const [userInfo, setUserInfo] = useState({ token: "", user: {} });
+  const [num, setNum] = useState(0);
   useEffect(() => {
     const token = localStorage.getItem("Manaplay.encodedToken");
     const user = JSON.parse(localStorage.getItem("Manaplay.User"));
-    if (token) {
-      setUserInfo({ ...userInfo, token: token });
+    if (token || user) {
+      setUserInfo({ ...userInfo, token: token, user: user });
     } else {
-      setUserInfo({ ...userInfo, token: "" });
-    }
-    if (user) {
-      setUserInfo({ ...userInfo, user: user });
-    } else {
-      setUserInfo({ ...userInfo, user: {} });
+      setUserInfo({ ...userInfo, token: "", user: {} });
     }
   }, []);
-
+  console.log(userInfo);
   const login = async (email, password) => {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
