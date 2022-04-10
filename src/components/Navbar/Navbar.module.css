@@ -14,7 +14,12 @@
   color: var(--primary-color);
   cursor: pointer;
 }
-
+.icons {
+  cursor: pointer;
+}
+.username {
+  margin-right: 0.8rem;
+}
 .nav_actions {
   margin-left: auto;
   display: flex;
