@@ -2,7 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import React from "react";
 import "./App.css";
 import { MobileMenu, Navbar, Sidebar } from "./components/index";
-import { HomePage, LoginPage, SignupPage, SingleVideoPage } from "./pages";
+import {
+  HomePage,
+  LikedPage,
+  LoginPage,
+  SignupPage,
+  SingleVideoPage,
+} from "./pages";
 import { ProtectedRoute } from "./route/ProtectedRoute";
 
 function App() {
@@ -19,7 +25,7 @@ function App() {
           path="/liked-videos"
           element={
             <ProtectedRoute>
-              <h1>Liked videos</h1>
+              <LikedPage />
             </ProtectedRoute>
           }
         />
@@ -39,7 +45,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/watch" element={<SingleVideoPage />} />
+        <Route path="/watch/:videoId" element={<SingleVideoPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
       </Routes>
