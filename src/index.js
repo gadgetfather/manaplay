@@ -5,6 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/auth-context";
+import { LikeProvider } from "./context/like-context";
 
 // Call make Server
 makeServer();
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <LikeProvider>
+          <App />
+        </LikeProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
