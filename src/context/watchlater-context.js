@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const WatchlaterContext = createContext();
 
 const WatchLaterProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [watchLaterArr, setWatchLaterArr] = useState([]);
   const addToWatchlater = async (video) => {
     try {
@@ -16,7 +19,18 @@ const WatchLaterProvider = ({ children }) => {
       if (response.status === 201) {
         setWatchLaterArr(response.data.watchlater);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error("You need to login", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/login");
+    }
   };
   const removeFromWatchLater = async (videoId) => {
     try {
