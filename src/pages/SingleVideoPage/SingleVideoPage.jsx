@@ -5,9 +5,12 @@ import { SimilarVideoCard } from "../../components";
 import { useLike } from "../../context/like-context";
 import * as styles from "./SingleVideoPage.module.css";
 import { ToastContainer, toast } from "react-toastify";
+import { useWatchlater } from "../../context/watchlater-context";
 export function SingleVideoPage() {
   const [video, setVideo] = useState({});
   const { videoId } = useParams();
+  const { addToWatchlater, removeFromWatchLater, watchLaterArr } =
+    useWatchlater();
   const { addToLike, likedArr, removeFromLike } = useLike();
   useEffect(
     () =>
@@ -27,6 +30,14 @@ export function SingleVideoPage() {
   };
   const handleUnlike = (videoId) => {
     removeFromLike(videoId);
+  };
+  const handleWatchlater = (e, video) => {
+    e.stopPropagation();
+    addToWatchlater(video);
+  };
+  const handleRemoveFromWatchlater = (e, videoid) => {
+    e.stopPropagation();
+    removeFromWatchLater(videoid);
   };
   return (
     <div className={styles.main_content_singleVideo}>
@@ -70,7 +81,22 @@ export function SingleVideoPage() {
               </span>
             )}
             <span className="material-icons-outlined">playlist_add</span>
-            <span className="material-icons-outlined">watch_later</span>
+            {watchLaterArr.some((videos) => videos._id === video._id) ? (
+              <span
+                title="remove from watch later"
+                onClick={(e) => handleRemoveFromWatchlater(e, video._id)}
+                className={` material-icons-outlined ${styles.watch_later_icon}`}
+              >
+                done
+              </span>
+            ) : (
+              <span
+                onClick={(e) => handleWatchlater(e, video)}
+                className={` material-icons-outlined ${styles.watch_later_icon}`}
+              >
+                watch_later
+              </span>
+            )}
           </div>
         </div>
       </div>
