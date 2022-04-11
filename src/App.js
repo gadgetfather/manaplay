@@ -8,6 +8,7 @@ import {
   LoginPage,
   SignupPage,
   SingleVideoPage,
+  WatchlaterPage,
 } from "./pages";
 import { ProtectedRoute } from "./route/ProtectedRoute";
 
@@ -20,7 +21,14 @@ function App() {
       <Routes>
         <Route path="*" element={<h1>This under construction</h1>} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/watch-later" element={<h1>Watch later</h1>} />
+        <Route
+          path="/watch-later"
+          element={
+            <ProtectedRoute>
+              <WatchlaterPage />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/liked-videos"
           element={
