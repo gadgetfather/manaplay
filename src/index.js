@@ -6,6 +6,7 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/auth-context";
 import { LikeProvider } from "./context/like-context";
+import { WatchLaterProvider } from "./context/watchlater-context";
 
 // Call make Server
 makeServer();
@@ -14,9 +15,11 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <LikeProvider>
-          <App />
-        </LikeProvider>
+        <WatchLaterProvider>
+          <LikeProvider>
+            <App />
+          </LikeProvider>
+        </WatchLaterProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
