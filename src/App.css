@@ -14,7 +14,9 @@
   color: var(--link-color);
   text-decoration: none;
 }
-
+.page_title {
+  font-size: 1.3rem;
+}
 .page_container {
   height: 100vh;
   width: 100vw;

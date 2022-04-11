@@ -10,6 +10,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-top: 1px solid var(--pills-border);
+  z-index: 2;
 }
 .active {
   background-color: rgb(229, 229, 229);
