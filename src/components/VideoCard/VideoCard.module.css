@@ -9,7 +9,17 @@
 }
 .video_thumbnail {
   height: 70%;
-  /* border: 1px solid red; */
+  position: relative;
+}
+
+.watch_later_icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(19, 15, 16);
+  color: #fff;
+  padding: 0.2rem;
+  margin-top: 0.2rem;
 }
 
 .thumbnail {
