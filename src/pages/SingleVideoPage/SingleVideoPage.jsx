@@ -34,7 +34,6 @@ export function SingleVideoPage() {
       })(),
     []
   );
-  console.log(historyArr);
   const handleLike = (video) => {
     addToLike(video);
   };
@@ -56,6 +55,8 @@ export function SingleVideoPage() {
         <ReactPlayer
           className={styles.react_player}
           controls={true}
+          playing={true}
+          volume={0.5}
           width="100%"
           height="100%"
           url={`https://www.youtube.com/embed/${video._id}?autoplay=0`}
