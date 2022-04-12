@@ -45,6 +45,16 @@ export function Sidebar() {
             thumb_up_off_alt
           </span>
         </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `link ${styles.active}` : "link"
+          }
+          to={"/watch-later"}
+        >
+          <span title="Watch later" className="material-icons-outlined">
+            watch_later
+          </span>
+        </NavLink>
       </div>
     </aside>
   );

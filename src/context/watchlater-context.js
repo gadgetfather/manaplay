@@ -1,23 +1,25 @@
 import axios from "axios";
 import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-const likeContext = createContext();
+const WatchlaterContext = createContext();
 
-const LikeProvider = ({ children }) => {
-  const [likedArr, setLikedArr] = useState([]);
-  const addToLike = async (video) => {
+const WatchLaterProvider = ({ children }) => {
+  const navigate = useNavigate();
+  const [watchLaterArr, setWatchLaterArr] = useState([]);
+  const addToWatchlater = async (video) => {
     try {
       const encodedToken = localStorage.getItem("Manaplay.encodedToken");
       const response = await axios.post(
-        "/api/user/likes",
+        "/api/user/watchlater",
         { video },
         { headers: { authorization: encodedToken } }
       );
       if (response.status === 201) {
-        setLikedArr(response.data.likes);
+        setWatchLaterArr(response.data.watchlater);
       }
-    } catch (err) {
+    } catch (error) {
       toast.error("You need to login", {
         position: "top-center",
         autoClose: 5000,
@@ -27,28 +29,31 @@ const LikeProvider = ({ children }) => {
         draggable: true,
         progress: undefined,
       });
+      navigate("/login");
     }
   };
-  const removeFromLike = async (videoId) => {
+  const removeFromWatchLater = async (videoId) => {
     try {
       const encodedToken = localStorage.getItem("Manaplay.encodedToken");
-      const response = await axios.delete(`/api/user/likes/${videoId}`, {
+      const response = await axios.delete(`/api/user/watchlater/${videoId}`, {
         headers: { authorization: encodedToken },
       });
       if (response.status === 200) {
-        setLikedArr(response.data.likes);
+        setWatchLaterArr(response.data.watchlater);
       }
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <likeContext.Provider value={{ addToLike, removeFromLike, likedArr }}>
+    <WatchlaterContext.Provider
+      value={{ addToWatchlater, removeFromWatchLater, watchLaterArr }}
+    >
       {children}
-    </likeContext.Provider>
+    </WatchlaterContext.Provider>
   );
 };
 
-const useLike = () => useContext(likeContext);
+const useWatchlater = () => useContext(WatchlaterContext);
 
-export { useLike, LikeProvider };
+export { useWatchlater, WatchLaterProvider };
