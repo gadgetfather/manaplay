@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import { MobileMenu, Navbar, Sidebar } from "./components/index";
 import {
+  HistoryPage,
   HomePage,
   LikedPage,
   LoginPage,
@@ -41,7 +42,7 @@ function App() {
           path="/history"
           element={
             <ProtectedRoute>
-              <h1>History</h1>
+              <HistoryPage />
             </ProtectedRoute>
           }
         />
