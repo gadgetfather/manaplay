@@ -14,7 +14,7 @@ const HistoryProvider = ({ children }) => {
         { video },
         { headers: { authorization: encodedToken } }
       );
-      console.log(response);
+
       if (response.status === 201) {
         setHistoryArr(response.data.history);
       }
@@ -31,9 +31,22 @@ const HistoryProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const removeAllHistory = async () => {
+    try {
+      const encodedToken = localStorage.getItem("Manaplay.encodedToken");
+      const response = await axios.delete("/api/user/history/all", {
+        headers: { authorization: encodedToken },
+      });
+      if (response.status === 200) {
+        setHistoryArr(response.data.history);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <HistoryContext.Provider
-      value={{ historyArr, addToHistory, removeFromHistory }}
+      value={{ historyArr, addToHistory, removeFromHistory, removeAllHistory }}
     >
       {children}
     </HistoryContext.Provider>
