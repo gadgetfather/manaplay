@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useHistory } from "../../context/history-context";
 import * as styles from "./HistoryCard.module.css";
 export function HistoryCard(props) {
   const { _id, title, views, creator_image, creator, thumbnail } = props;
   const { removeFromHistory } = useHistory();
+  const navigate = useNavigate();
   const handleRemove = (e, _id) => {
     e.stopPropagation();
     removeFromHistory(_id);
