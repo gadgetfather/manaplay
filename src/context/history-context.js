@@ -18,7 +18,9 @@ const HistoryProvider = ({ children }) => {
       if (response.status === 201) {
         setHistoryArr(response.data.history);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   const removeFromHistory = async (videoId) => {
     try {
@@ -28,7 +30,7 @@ const HistoryProvider = ({ children }) => {
       });
       setHistoryArr(response.data.history);
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
   const removeAllHistory = async () => {
