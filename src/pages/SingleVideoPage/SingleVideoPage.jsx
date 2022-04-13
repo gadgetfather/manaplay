@@ -8,10 +8,14 @@ import { ToastContainer, toast } from "react-toastify";
 import { useWatchlater } from "../../context/watchlater-context";
 import { useHistory } from "../../context/history-context";
 import ReactPlayer from "react-player";
+import { useAuth } from "../../context/auth-context";
 export function SingleVideoPage() {
   const [video, setVideo] = useState({});
   const { addToHistory, removeFromHistory, historyArr } = useHistory();
   const { videoId } = useParams();
+  const {
+    userInfo: { token },
+  } = useAuth();
   const { addToWatchlater, removeFromWatchLater, watchLaterArr } =
     useWatchlater();
   const { addToLike, likedArr, removeFromLike } = useLike();
@@ -22,7 +26,7 @@ export function SingleVideoPage() {
           const response = await axios.get(`/api/video/${videoId}`);
           setVideo(response.data.video);
           const foundVideo = historyArr.find((item) => item._id === videoId);
-          if (foundVideo) {
+          if (foundVideo && token) {
             removeFromHistory(foundVideo._id);
             addToHistory(foundVideo);
           } else {
