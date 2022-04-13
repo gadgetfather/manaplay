@@ -23,15 +23,6 @@ export function LoginPage() {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmit) {
       login(formValues.email, formValues.password);
-      toast.success("You are logged in", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
     }
   }, [errors]);
 
