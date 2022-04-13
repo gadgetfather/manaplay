@@ -20,7 +20,7 @@ const LikeProvider = ({ children }) => {
     } catch (err) {
       toast.error("You need to login", {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

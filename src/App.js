@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import { MobileMenu, Navbar, Sidebar } from "./components/index";
 import {
+  HistoryPage,
   HomePage,
   LikedPage,
   LoginPage,
@@ -11,6 +12,7 @@ import {
   WatchlaterPage,
 } from "./pages";
 import { ProtectedRoute } from "./route/ProtectedRoute";
+import MockmanEs from "mockman-js";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <Sidebar />
       <MobileMenu />
       <Routes>
+        <Route path="/mock" element={<MockmanEs />} />
         <Route path="*" element={<h1>This under construction</h1>} />
         <Route path="/" element={<HomePage />} />
         <Route
@@ -41,7 +44,7 @@ function App() {
           path="/history"
           element={
             <ProtectedRoute>
-              <h1>History</h1>
+              <HistoryPage />
             </ProtectedRoute>
           }
         />

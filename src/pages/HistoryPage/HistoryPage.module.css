@@ -1,0 +1,28 @@
+.main_content_history {
+  min-height: calc(100vh - 3.5rem);
+  background-color: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+.history_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.title_container {
+  display: flex;
+  gap: 7rem;
+  margin-top: 0.5rem;
+}
+.title_container button {
+  padding: 0.2rem 0.4rem;
+  font-size: 1rem;
+}
+@media screen and (min-width: 1100px) {
+  .main_content_history {
+    margin-left: 5rem;
+  }
+}

@@ -6,9 +6,16 @@ import { useLike } from "../../context/like-context";
 import * as styles from "./SingleVideoPage.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useWatchlater } from "../../context/watchlater-context";
+import { useHistory } from "../../context/history-context";
+import ReactPlayer from "react-player";
+import { useAuth } from "../../context/auth-context";
 export function SingleVideoPage() {
   const [video, setVideo] = useState({});
+  const { addToHistory, removeFromHistory, historyArr } = useHistory();
   const { videoId } = useParams();
+  const {
+    userInfo: { token },
+  } = useAuth();
   const { addToWatchlater, removeFromWatchLater, watchLaterArr } =
     useWatchlater();
   const { addToLike, likedArr, removeFromLike } = useLike();
@@ -18,13 +25,19 @@ export function SingleVideoPage() {
         try {
           const response = await axios.get(`/api/video/${videoId}`);
           setVideo(response.data.video);
+          const foundVideo = historyArr.find((item) => item._id === videoId);
+          if (foundVideo && token) {
+            removeFromHistory(foundVideo._id);
+            addToHistory(foundVideo);
+          } else {
+            addToHistory(response.data.video);
+          }
         } catch (error) {
           console.log(error);
         }
       })(),
     []
   );
-
   const handleLike = (video) => {
     addToLike(video);
   };
@@ -43,12 +56,15 @@ export function SingleVideoPage() {
     <div className={styles.main_content_singleVideo}>
       <ToastContainer />
       <div className={styles.video_container}>
-        <iframe
-          src={`https://www.youtube.com/embed/${video._id}?autoplay=1`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <ReactPlayer
+          className={styles.react_player}
+          controls={true}
+          playing={true}
+          volume={0.5}
+          width="100%"
+          height="100%"
+          url={`https://www.youtube.com/embed/${video._id}?autoplay=0`}
+        />
       </div>
       <div className={styles.video_details}>
         <h2>{video.title}</h2>

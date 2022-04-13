@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const AuthContext = createContext();
 
@@ -22,8 +23,17 @@ const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
-
+      console.log(response);
       if (response.status === 200) {
+        toast.success("You are logged in", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         setTimeout(() => {
           navigate(location?.state?.from?.pathname || -1, { replace: true });
         }, 2000);
@@ -42,7 +52,15 @@ const AuthProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.errors[0], {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
   const signup = async (email, password, firstName) => {

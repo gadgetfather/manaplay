@@ -44,6 +44,16 @@ export function MobileMenu() {
           thumb_up_off_alt
         </span>
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? `link ${styles.active}` : "link"
+        }
+        to={"/watch-later"}
+      >
+        <span title="Liked videos" className="material-icons-outlined">
+          watch_later
+        </span>
+      </NavLink>
     </div>
   );
 }
