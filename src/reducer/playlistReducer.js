@@ -21,6 +21,12 @@ export const playlistReducer = (state, action) => {
       };
     case "SET_SINGLE_PLAYLIST":
       return { ...state, singlePlaylist: action.payload };
+    case "RESET":
+      return {
+        playlistsArr: [],
+        singlePlaylist: {},
+        showModal: false,
+      };
     default:
       break;
   }

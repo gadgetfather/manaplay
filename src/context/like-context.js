@@ -43,7 +43,9 @@ const LikeProvider = ({ children }) => {
     }
   };
   return (
-    <likeContext.Provider value={{ addToLike, removeFromLike, likedArr }}>
+    <likeContext.Provider
+      value={{ addToLike, removeFromLike, likedArr, setLikedArr }}
+    >
       {children}
     </likeContext.Provider>
   );
