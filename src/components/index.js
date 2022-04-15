@@ -6,3 +6,7 @@ export { SimilarVideoCard } from "./SimilarVideoCard/SimilarVideoCard";
 export { LikedCard } from "./LikedCard/LikedCard";
 export { WatchlaterCard } from "./WatchlaterCard/WatchlaterCard";
 export { HistoryCard } from "./HistoryCard/HistoryCard";
+export { PlaylistModal } from "./PlaylistModal/PlaylistModal";
+export { PlaylistGrid } from "./PlaylistGrid/PlaylistGrid";
+export { PlaylistCard } from "./PlaylistCard/PlaylistCard";
+export { PlaylistVideoCard } from "./PlaylistVideoCard/PlaylistVideoCard";
