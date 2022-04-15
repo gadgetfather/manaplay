@@ -3,12 +3,14 @@ import React, { createContext, useContext, useState } from "react";
 import { useAuth } from "./auth-context";
 
 const HistoryContext = createContext();
-
 const HistoryProvider = ({ children }) => {
+  const {
+    userInfo: { token: encodedToken },
+  } = useAuth();
   const [historyArr, setHistoryArr] = useState([]);
   const addToHistory = async (video) => {
     try {
-      const encodedToken = localStorage.getItem("Manaplay.encodedToken");
+      // const encodedToken = localStorage.getItem("Manaplay.encodedToken");
       const response = await axios.post(
         "/api/user/history",
         { video },
@@ -24,7 +26,7 @@ const HistoryProvider = ({ children }) => {
   };
   const removeFromHistory = async (videoId) => {
     try {
-      const encodedToken = localStorage.getItem("Manaplay.encodedToken");
+      // const encodedToken = localStorage.getItem("Manaplay.encodedToken");
       const response = await axios.delete(`/api/user/history/${videoId}`, {
         headers: { authorization: encodedToken },
       });
@@ -35,7 +37,7 @@ const HistoryProvider = ({ children }) => {
   };
   const removeAllHistory = async () => {
     try {
-      const encodedToken = localStorage.getItem("Manaplay.encodedToken");
+      // const encodedToken = localStorage.getItem("Manaplay.encodedToken");
       const response = await axios.delete("/api/user/history/all", {
         headers: { authorization: encodedToken },
       });
