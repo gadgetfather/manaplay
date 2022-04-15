@@ -70,26 +70,26 @@ export function Navbar() {
             >
               logout
             </span>
-            {theme ? (
-              <span
-                onClick={switchTheme}
-                className={`${styles.icons} material-icons-outlined`}
-              >
-                light_mode
-              </span>
-            ) : (
-              <span
-                onClick={switchTheme}
-                className={`${styles.icons} material-icons-outlined`}
-              >
-                dark_mode
-              </span>
-            )}
           </>
         ) : (
           <Link to={"/login"} className={`btn btn-secondary ${styles.sign_in}`}>
             Sign In
           </Link>
+        )}
+        {theme ? (
+          <span
+            onClick={switchTheme}
+            className={`${styles.icons} material-icons-outlined`}
+          >
+            light_mode
+          </span>
+        ) : (
+          <span
+            onClick={switchTheme}
+            className={`${styles.icons} material-icons-outlined`}
+          >
+            dark_mode
+          </span>
         )}
       </div>
     </nav>

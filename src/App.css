@@ -21,13 +21,14 @@
   --main-bg: #222831;
   --sidebar-bg: #222831;
   --navbar-bg: #222831;
+
   --breaker: rgb(189, 186, 186);
   --category-pills-bg: rgb(55, 55, 55);
   --pill-text: #fff;
 
   --pills-border: rgba(255, 255, 255, 0.1);
   --link-color: black;
-  --form-bg: #fff;
+  --form-bg: #868789;
   --error-color: #cc0000;
   --text-color: #fff;
   --active-bg: #f05454;
