@@ -11,7 +11,7 @@ export function HistoryPage() {
         {historyArr.length > 0 ? (
           <button
             onClick={() => removeAllHistory()}
-            className="btn btn-secondary"
+            className={`${styles.clear_btn}btn btn-secondary`}
           >
             Clear all
           </button>
