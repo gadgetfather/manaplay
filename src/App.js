@@ -16,14 +16,16 @@ import {
 import { ProtectedRoute } from "./route/ProtectedRoute";
 import MockmanEs from "mockman-js";
 import { usePlaylist } from "./context/playlist-context";
-
+import { useTheme } from "./context/theme-context";
 function App() {
+  const { theme, setTheme } = useTheme();
+
   const {
     playlists: { showModal },
   } = usePlaylist();
   return (
     <>
-      <div className="page_container">
+      <div className="page_container" data-theme={theme}>
         <Navbar />
         <Sidebar />
         <MobileMenu />
