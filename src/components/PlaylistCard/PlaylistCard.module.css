@@ -1,0 +1,26 @@
+.playlist_card_container {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--pills-border);
+  cursor: pointer;
+  position: relative;
+}
+.btn_delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.playlist_card_container:hover {
+  box-shadow: 6px 6px 18px -9px rgba(0, 0, 0, 0.681);
+  transition: 0.2s ease-in-out;
+}
+@media screen and (min-width: 1100px) {
+  .playlist_card_container {
+    width: 18rem;
+    padding: 1rem;
+  }
+}
