@@ -5,3 +5,5 @@ export { SignupPage } from "./SignupPage/SignupPage";
 export { LikedPage } from "./LikedPage/LikedPage";
 export { WatchlaterPage } from "./WatchlaterPage/WatchlaterPage";
 export { HistoryPage } from "./HistoryPage/HistoryPage";
+export { PlaylistPage } from "./PlaylistPage/PlaylistPage";
+export { SinglePlaylistPage } from "./SinglePlaylistPage/SinglePlaylistPage";
