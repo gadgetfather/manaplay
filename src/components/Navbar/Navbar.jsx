@@ -76,7 +76,7 @@ export function Navbar() {
             Sign In
           </Link>
         )}
-        {theme ? (
+        {theme === "light" ? (
           <span
             onClick={switchTheme}
             className={`${styles.icons} material-icons-outlined`}
