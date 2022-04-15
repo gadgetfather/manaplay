@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { SimilarVideoCard } from "../../components";
+import { PlaylistModal, SimilarVideoCard } from "../../components";
 import { useLike } from "../../context/like-context";
 import * as styles from "./SingleVideoPage.module.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { useWatchlater } from "../../context/watchlater-context";
 import { useHistory } from "../../context/history-context";
 import ReactPlayer from "react-player";
 import { useAuth } from "../../context/auth-context";
+import { usePlaylist } from "../../context/playlist-context";
 export function SingleVideoPage() {
   const [video, setVideo] = useState({});
   const { addToHistory, removeFromHistory, historyArr } = useHistory();
@@ -19,6 +20,10 @@ export function SingleVideoPage() {
   const { addToWatchlater, removeFromWatchLater, watchLaterArr } =
     useWatchlater();
   const { addToLike, likedArr, removeFromLike } = useLike();
+  const {
+    playlistsDispatch,
+    playlists: { showModal },
+  } = usePlaylist();
   useEffect(
     () =>
       (async () => {
@@ -26,10 +31,10 @@ export function SingleVideoPage() {
           const response = await axios.get(`/api/video/${videoId}`);
           setVideo(response.data.video);
           const foundVideo = historyArr.find((item) => item._id === videoId);
-          if (foundVideo && token) {
+          if (token && foundVideo) {
             removeFromHistory(foundVideo._id);
             addToHistory(foundVideo);
-          } else {
+          } else if (token) {
             addToHistory(response.data.video);
           }
         } catch (error) {
@@ -52,11 +57,28 @@ export function SingleVideoPage() {
     e.stopPropagation();
     removeFromWatchLater(videoid);
   };
+  const handleOpenModal = () => {
+    if (token) {
+      playlistsDispatch({ type: "SHOW_MODAL" });
+      document.body.style.overflow = "hidden";
+      window.scrollTo({ top: 0 });
+    } else {
+      toast.error("You need to login", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   return (
     <div className={styles.main_content_singleVideo}>
       <ToastContainer />
       <div className={styles.video_container}>
-        <ReactPlayer
+        {/* <ReactPlayer
           className={styles.react_player}
           controls={true}
           playing={true}
@@ -64,7 +86,7 @@ export function SingleVideoPage() {
           width="100%"
           height="100%"
           url={`https://www.youtube.com/embed/${video._id}?autoplay=0`}
-        />
+        /> */}
       </div>
       <div className={styles.video_details}>
         <h2>{video.title}</h2>
@@ -96,7 +118,9 @@ export function SingleVideoPage() {
                 thumb_up
               </span>
             )}
-            <span className="material-icons-outlined">playlist_add</span>
+            <span onClick={handleOpenModal} className="material-icons-outlined">
+              playlist_add
+            </span>
             {watchLaterArr.some((videos) => videos._id === video._id) ? (
               <span
                 title="remove from watch later"
@@ -120,6 +144,7 @@ export function SingleVideoPage() {
       <div>
         <SimilarVideoCard />
       </div>
+      {showModal ? <PlaylistModal /> : ""}
     </div>
   );
 }
