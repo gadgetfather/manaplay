@@ -24,7 +24,8 @@
   cursor: pointer;
 }
 .active {
-  background-color: rgb(229, 229, 229);
+  background-color: var(--active-bg);
+  color: var(--active-color);
   border-radius: 50%;
   padding: 5px;
 }
