@@ -78,7 +78,7 @@ export function SingleVideoPage() {
     <div className={styles.main_content_singleVideo}>
       <ToastContainer />
       <div className={styles.video_container}>
-        {/* <ReactPlayer
+        <ReactPlayer
           className={styles.react_player}
           controls={true}
           playing={true}
@@ -86,7 +86,7 @@ export function SingleVideoPage() {
           width="100%"
           height="100%"
           url={`https://www.youtube.com/embed/${video._id}?autoplay=0`}
-        /> */}
+        />
       </div>
       <div className={styles.video_details}>
         <h2>{video.title}</h2>
