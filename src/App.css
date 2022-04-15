@@ -21,7 +21,7 @@
   height: 100vh;
   width: 100vw;
   background-color: rgb(69, 69, 69);
-  position: relative;
+  /* position: relative; */
 }
 .error-text {
   color: var(--error-color);
