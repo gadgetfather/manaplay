@@ -50,7 +50,13 @@ const HistoryProvider = ({ children }) => {
   };
   return (
     <HistoryContext.Provider
-      value={{ historyArr, addToHistory, removeFromHistory, removeAllHistory }}
+      value={{
+        historyArr,
+        addToHistory,
+        removeFromHistory,
+        removeAllHistory,
+        setHistoryArr,
+      }}
     >
       {children}
     </HistoryContext.Provider>

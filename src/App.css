@@ -9,6 +9,30 @@
   --link-color: black;
   --form-bg: #fff;
   --error-color: #cc0000;
+  --text-color: black;
+  --active-color: #fff;
+  --active-bg: rgb(229, 229, 229);
+  --pill-text: black;
+}
+[data-theme="dark"] {
+  --primary-color: #f05454;
+  --primary-hover-color: #bd2121;
+  --secondary-color: #30475e;
+  --main-bg: #222831;
+  --sidebar-bg: #222831;
+  --navbar-bg: #222831;
+
+  --breaker: rgb(189, 186, 186);
+  --category-pills-bg: rgb(55, 55, 55);
+  --pill-text: #fff;
+
+  --pills-border: rgba(255, 255, 255, 0.1);
+  --link-color: black;
+  --form-bg: #868789;
+  --error-color: #cc0000;
+  --text-color: #fff;
+  --active-bg: #f05454;
+  --breaker: rgb(55, 55, 55);
 }
 .link {
   color: var(--link-color);
@@ -16,6 +40,16 @@
 }
 .page_title {
   font-size: 1.3rem;
+}
+.material-icons-outlined {
+  color: var(--text-color);
+}
+h1,
+h2,
+h3,
+p,
+span {
+  color: var(--text-color);
 }
 .page_container {
   height: 100vh;

@@ -61,4 +61,7 @@
   .video_actions span {
     font-size: 1.7rem;
   }
+  .video_actions {
+    gap: 1rem;
+  }
 }
