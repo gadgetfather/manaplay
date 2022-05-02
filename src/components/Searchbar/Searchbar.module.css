@@ -1,0 +1,40 @@
+.searchInputs {
+  display: flex;
+  align-items: center;
+}
+.icons {
+  margin-left: 1rem;
+}
+.inputField {
+  padding: 0.2rem 0.6rem;
+  margin-right: auto;
+  width: 20rem;
+  left: 2%;
+}
+.dataResult {
+  position: absolute;
+  margin-top: 5px;
+  width: 20rem;
+  height: 200px;
+  background-color: var(--navbar-bg);
+  box-shadow: rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 2;
+  border: 1px solid var(--breaker);
+}
+.dataResult_item {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+  margin-bottom: 0.3rem;
+  padding: 0.2rem 0.4rem;
+}
+.dataResult_item:hover {
+  background-color: var(--primary-color);
+}
+@media screen and (max-width: 1000px) {
+  .search {
+    display: none;
+  }
+}
