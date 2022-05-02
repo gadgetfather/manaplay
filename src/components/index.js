@@ -10,3 +10,5 @@ export { PlaylistModal } from "./PlaylistModal/PlaylistModal";
 export { PlaylistGrid } from "./PlaylistGrid/PlaylistGrid";
 export { PlaylistCard } from "./PlaylistCard/PlaylistCard";
 export { PlaylistVideoCard } from "./PlaylistVideoCard/PlaylistVideoCard";
+export { Searchbar } from "./Searchbar/Searchbar";
+export { SearchbarMobile } from "./SearchbarMobile/SearchbarMobile";
