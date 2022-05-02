@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import * as styles from "./SignupPage.module.css";
-import { signupReducer } from "./signupReducer";
+import { signupReducer } from "../../reducer/signupReducer";
 import { validate } from "./validate";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,15 +29,6 @@ export function SignupPage() {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmit) {
       signup(formValues.email, formValues.password, formValues.firstName);
-      toast.success("Account has been created", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
     }
   }, [errors]);
 
