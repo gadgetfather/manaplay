@@ -5,9 +5,10 @@
   align-items: center;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
+  position: relative;
 }
 .sign_in {
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: var(--text-color);
 }
 .brand_name {
@@ -19,7 +20,14 @@
   cursor: pointer;
 }
 .username {
-  margin-right: 0.8rem;
+  margin-right: 0.5rem;
+}
+.searchbar {
+  /* position: absolute; */
+  left: 0;
+  width: 12rem;
+  padding: 0.3rem 0.6rem;
+  margin-left: 0.1rem;
 }
 .nav_actions {
   margin-left: auto;
@@ -41,4 +49,42 @@
   .nav_actions {
     gap: 1rem;
   }
+}
+/* temp edits */
+.left_part {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  justify-content: space-between;
+}
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* input {
+  height: 50px;
+  font-size: 1.2rem;
+  width: 0%;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 15px;
+  transition: 0.5s;
+  background-color: black;
+} */
+.icon {
+  height: 60px;
+  width: 60px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transform: translateX(-30px);
+}
+
+.active {
+  width: 60%;
 }
