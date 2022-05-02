@@ -10,9 +10,9 @@
   --form-bg: #fff;
   --error-color: #cc0000;
   --text-color: black;
-  --active-color: #fff;
+  --active-color: black;
   --active-bg: rgb(229, 229, 229);
-  --pill-text: black;
+  --pill-text: #fff;
 }
 [data-theme="dark"] {
   --primary-color: #f05454;
