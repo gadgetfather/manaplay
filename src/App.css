@@ -13,8 +13,10 @@
   --active-color: black;
   --active-bg: rgb(229, 229, 229);
   --pill-text: #fff;
+  --hover-text-color: #fff;
 }
 [data-theme="dark"] {
+  --hover-text-color: black;
   --primary-color: #f05454;
   --primary-hover-color: #bd2121;
   --secondary-color: #30475e;

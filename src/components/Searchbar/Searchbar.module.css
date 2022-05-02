@@ -26,12 +26,13 @@
 .dataResult_item {
   display: block;
   text-decoration: none;
-  color: var(--text-color);
   margin-bottom: 0.3rem;
   padding: 0.2rem 0.4rem;
+  color: var(--text-color);
 }
 .dataResult_item:hover {
   background-color: var(--primary-color);
+  color: var(--hover-text-color);
 }
 @media screen and (max-width: 1000px) {
   .search {
