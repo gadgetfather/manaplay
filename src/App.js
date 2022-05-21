@@ -12,6 +12,7 @@ import {
   SingleVideoPage,
   WatchlaterPage,
   SinglePlaylistPage,
+  ErrorPage,
 } from "./pages";
 import { ProtectedRoute } from "./route/ProtectedRoute";
 import MockmanEs from "mockman-js";
@@ -31,7 +32,7 @@ function App() {
         <MobileMenu />
         <Routes>
           <Route path="/mock" element={<MockmanEs />} />
-          <Route path="*" element={<h1>This under construction</h1>} />
+          <Route path="*" element={<ErrorPage />} />
           <Route path="/" element={<HomePage />} />
           <Route
             path="/watch-later"

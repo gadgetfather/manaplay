@@ -41,7 +41,7 @@ export function SingleVideoPage() {
           console.log(error);
         }
       })(),
-    []
+    [videoId]
   );
   const handleLike = (video) => {
     addToLike(video);

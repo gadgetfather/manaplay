@@ -20,5 +20,5 @@ export const useFetchVideoData = () => {
       })(),
     []
   );
-  return { videos, loader };
+  return { videos, loader, setvideos };
 };

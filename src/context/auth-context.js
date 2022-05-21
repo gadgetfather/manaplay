@@ -72,11 +72,28 @@ const AuthProvider = ({ children }) => {
       });
       if (response.status === 201) {
         setTimeout(() => {
-          navigate(location?.state?.from?.pathname || "/");
+          navigate(location?.state?.from?.pathname || "/login");
         }, 2000);
+        toast.success("Account has been created", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.errors[0], {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
   return (

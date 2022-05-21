@@ -7,3 +7,4 @@ export { WatchlaterPage } from "./WatchlaterPage/WatchlaterPage";
 export { HistoryPage } from "./HistoryPage/HistoryPage";
 export { PlaylistPage } from "./PlaylistPage/PlaylistPage";
 export { SinglePlaylistPage } from "./SinglePlaylistPage/SinglePlaylistPage";
+export { ErrorPage } from "./ErrorPage/ErrorPage";
