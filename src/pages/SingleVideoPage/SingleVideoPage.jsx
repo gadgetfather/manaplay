@@ -10,10 +10,14 @@ import { useHistory } from "../../context/history-context";
 import ReactPlayer from "react-player";
 import { useAuth } from "../../context/auth-context";
 import { usePlaylist } from "../../context/playlist-context";
+import { useFetchVideoData } from "../../hooks/useFetchVideoData";
 export function SingleVideoPage() {
   const [video, setVideo] = useState({});
   const { addToHistory, removeFromHistory, historyArr } = useHistory();
   const { videoId } = useParams();
+  const { videos, loader } = useFetchVideoData();
+  console.log(video);
+  console.log(videos);
   const {
     userInfo: { token },
   } = useAuth();
@@ -43,6 +47,10 @@ export function SingleVideoPage() {
       })(),
     [videoId]
   );
+  const similarVideos = videos.filter(
+    (item) => item.category === video.category
+  );
+  const temp = similarVideos.filter((item) => item.title !== video.title);
   const handleLike = (video) => {
     addToLike(video);
   };
@@ -142,7 +150,9 @@ export function SingleVideoPage() {
       </div>
       <h2 className={styles.section_title}>Similar Videos</h2>
       <div>
-        <SimilarVideoCard />
+        {temp.map((video) => (
+          <SimilarVideoCard key={video._id} {...video} />
+        ))}
       </div>
       {showModal ? <PlaylistModal /> : ""}
     </div>
