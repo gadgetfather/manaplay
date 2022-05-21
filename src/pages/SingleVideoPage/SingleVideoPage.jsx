@@ -16,8 +16,7 @@ export function SingleVideoPage() {
   const { addToHistory, removeFromHistory, historyArr } = useHistory();
   const { videoId } = useParams();
   const { videos, loader } = useFetchVideoData();
-  console.log(video);
-  console.log(videos);
+
   const {
     userInfo: { token },
   } = useAuth();
