@@ -28,7 +28,7 @@ So what are you waiting for , DIVE IN!
 From **Sidebar**
 
 - navigate to the Trending/Watchlater/Liked/Playlist/History page
-- navigate to the Home page back, click on the StormPlay logo
+- navigate to the Home page back, click on the ManaPlay logo
 - Log In/Log Out
 
   - Sign Up by following the link provided on the Log In page
