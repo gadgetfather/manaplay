@@ -13,8 +13,7 @@
 
 .category_pills {
   cursor: pointer;
-  /* color: var(--pill-text); */
-  /* background-color: var(--category-pills-bg); */
+
   padding: 0.2rem 0.6rem;
   border-radius: 9999px;
   border: 1px solid var(--pills-border);
