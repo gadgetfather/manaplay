@@ -61,9 +61,10 @@ From **Playlist** page
 - clone the repository on your local machine with the command below in your terminal, and cd into the **manaplay** folder
 
 ```
-git clone https://github.com/b0llu/StormPlay.git
+git clone https://github.com/gadgetfather/manaplay.git
 cd manaplay
 ```
+
 
 - install dependencies (if you are using **yarn** then do with that)
 
